@@ -11,19 +11,27 @@ class ReflexAgent():
     def up(self):
         if self.env.agent_posy > 0:
             self.env.agent_posy -= 1
+            return True
+        return False
 
     def down(self):
         if self.env.agent_posy < self.env.sizey - 1:
             self.env.agent_posy += 1
+            return True
+        return False
 
     def left(self):
         if self.env.agent_posx > 0:
             self.env.agent_posx -= 1
+            return True
+        return False
             
 
     def right(self):
         if self.env.agent_posx < self.env.sizex - 1:
             self.env.agent_posx += 1
+            return True
+        return False
             
 
     
@@ -47,14 +55,30 @@ class ReflexAgent():
             actions = ["up","down","left","right"]
             action = random.choice(actions)
             getattr(self,action)() #accede al metodo(segundo parametro) de la clase que se le indica en el 1er parametro
+            
+            # if self.env.agent_posx < self.env.sizex - 1:
+            #     self.right()
+            # elif self.env.agent_posy < self.env.sizey - 1:
+            #     self.down()
+            # elif self.env.agent_posx > 0:
+            #     self.left()
+            # elif self.env.agent_posy > 0:
+            #     self.up()
+            # else:
+            #     self.idle()
 
-env = Environment(128,128,1,1,0.8)
-agent = ReflexAgent(env)
+#env = Environment(128,128,1,1,0.8)
+#agent = ReflexAgent(env)
 #env.print_environment()
 
-for i in range(0,10):
-    agent.think()
+#for i in range(0,10):
+    #agent.think()
     #env.print_environment()
 
-print(f"Medida de rendimiento: {env.get_performance()}")
+#print(f"Medida de rendimiento: {env.get_performance()}")
+            
+
+
+                
+
 
