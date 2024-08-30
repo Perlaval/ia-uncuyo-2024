@@ -1,6 +1,6 @@
-**Ejercicio 6**
+<h1>Ejercicio 6</h1>
 
-**2.10** **Consider a modified version of the vacuum environment in Exercise 2.8, in which the agent is penalized one point for each movement**
+<h1>2.10) Consider a modified version of the vacuum environment in Exercise 2.8, in which the agent is penalized one point for each movement </h1>
 
 a. Can a simple reflex agent be perfectly rational for this environment? Explain.
 
@@ -14,7 +14,7 @@ c. How do your answers to a and b change if the agent’s percepts give it the c
 
 - El agente de la pregunta a sería racional ya que podría adaptarse para que se mueva solo a las casillas sucias, evite movimientos redundantes y mejore la toma de decisiones y el agente de b sería mucho más eficiente porque no solo va a saber cuales son las casillas ya recorridas sino que podrá dirigirse directamente a las casillas sucias para cumplir con el objetivo.
 
-**2.11** **Consider a modified version of the vacuum environment in Exercise 2.8, in which the geography of the environment—its extent, boundaries, and obstacles—is unknown, as is the initial dirt configuration. (The agent can go Up and Down as well as Left and Right.)**
+<h1>2.11)Consider a modified version of the vacuum environment in Exercise 2.8, in which the geography of the environment—its extent, boundaries, and obstacles—is unknown, as is the initial dirt configuration. (The agent can go Up and Down as well as Left and Right.)</h1>
 
 a. Can a simple reflex agent be perfectly rational for this environment? Explain
 
