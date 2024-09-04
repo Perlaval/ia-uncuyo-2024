@@ -1,0 +1,78 @@
+#creamos esta clase para poder definir el entorno del frozen lake usando la funcion generate_random_map
+# En gym, un entorno es una clase que hereda de 'gym.Env' y define las propiedades y funciones necesarias para un entorno de Gym
+# class FrozenLakeEnv(gym.Env):
+#     def __init__(self, map, **kwargs):
+#         #super(FrozenLakeEnv,self).__init__(**kwargs)
+#         self.map = map
+#         self.observation_space = gym.spaces.Discrete(len(map)*len(map[0]))
+#         #spaces.Discrete(len(map)*len(map[0])) crea un espacio discreto de tamaño size x size (filas*columnas)
+#         self.action_space = gym.spaces.Discrete(4)
+#         #crea un espacio de acciones con n posibles valores
+#         self.state, self.posx, self.posy = self.set_state_position("start")
+#         self.goal_state = self.set_state_position("goal")
+#         self.max_pasos = 8
+#         self.cont_pasos = 0
+    
+                
+#     def set_state_position(self,pos):
+#         cont = 0
+#         for i in range(len(map)):
+#             for j in range(len(map)):
+                
+#                 if self.map[i][j] == "S" and pos == "start":
+#                     return cont, i, j
+#                 elif self.map[i][j] == "G" and pos == "goal":
+#                     return cont
+                
+#                 cont += 1
+    
+#     def reset(self, options=None):
+#         observation = self.state
+#         if options is None:
+#             pass
+#         info = {'desc':'Custom Environment', 'map_name':'Custom'}
+#         return observation, info
+
+#     def step(self, action):
+#         reward = 0
+#         done = False
+#         truncated = False
+#         #0: mover a la izquierda
+#         if action == 0 and self.posy > 0 :
+#             self.state -= 1
+#             self.posy -= 1
+#         #1: mover hacia abajo
+#         elif action == 1 and self.posx < len(map)-1:
+#             #len(map) me devuelve la cantidad de filas que es = a la cant de columnas
+#             self.state += len(map)
+#             self.posx += 1
+#         #2: mover a la derecha
+#         elif action == 2 and self.posy < len(map)-1:
+#             self.state += 1
+#             self.posy += 1
+#         #3: mover hacia arriba
+#         elif action == 3 and self.posx > 0:
+#             self.state -= len(map)
+#             self.posx -= 1
+        
+#         self.cont_pasos += 1
+        
+#         if self.state == self.goal_state:
+#             reward += 1 #la recompensa se entrega cada vez que se alcanza el objetivo
+#             done = True
+                
+#         if self.cont_pasos >= self.max_pasos:
+#             truncated = True
+        
+#         return self.state, reward, done, truncated, {}
+    
+#     def print_environment(self):
+#         for i in range(len(map)):
+#             for j in range(len(map)):
+#                 if self.map[i][j] == "H":
+#                     print("* ", end="")
+#                 elif self.map[i][j] == "F":
+#                     print("_ ", end="")
+#                 else:
+#                     print(self.map[i][j], end="")
+#             print("")
