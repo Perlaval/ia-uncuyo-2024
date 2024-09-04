@@ -1,10 +1,10 @@
-**INTRODUCCIÓN** 
+<h1>INTRODUCCIÓN</h1>
 
 En el presente trabajo práctico, implementamos un agente reflexivo dentro del entorno del mundo de una aspiradora que se mueve a través de una grilla bidimensional para limpiar las cuadrículas sucias de manera eficiente con el objetivo de estudiar el desempeño del agente reflexivo mediante una medida de rendimiento que premia con un punto por cada recuadro que limpia en un periodo de tiempo concreto a lo largo de una vida determinada por una cantidad preestablecida de acciones que debe realizar.
 
 El agente reflexivo tiene la capacidad de tomar decisiones simples en función del estado actual del entorno sin requerir algún tipo de memoria o aprendizaje esto permite una mejor evaluación de cómo las distintas decisiones basadas en la percepción del entorno pueden afectar el rendimiento del agente, el cual analizaremos en función de diferentes tamaños de grilla y niveles de suciedad lo que permitirá obtener un perspectiva clara de la eficiencia y el alcance del agente reflexivo.
 
-**MARCO TEÓRICO**
+<h1>MARCO TEÓRICO</h1>
 
 Un agente inteligente se puede definir como un sistema que percibe su entorno a través de sensores que le permiten comprender el estado actual del mismo y a partir de esto interactúa con él usando actuadores con el fin de modificar el entorno para alcanzar el objetivo planteado teniendo en cuenta además una serie de criterios que determinan su medida de desempeño, la cual viene dada por una función de rendimiento que define que tan bien el agente está logrando su tarea. Estos factores son los que permiten medir la inteligencia de un agente además de su habilidad para adaptarse y aprender en función de la experiencia .
 
@@ -12,7 +12,7 @@ Hay diferentes tipos de agentes inteligentes y cada uno es implementado dependie
 
 Los entornos también tienen propiedades específicas que permiten definir la forma en que los agentes los perciben y cómo interactúan con los mismos, lo cual es importante porque esta definición influye en el diseño, comportamiento y efectividad de los agentes. Las principales propiedades de un entorno son: determinista o estocástico, estructurado o no estructurado, totalmente observable o parcialmente observable, estático o dinámico, multiagente o agente único.
 
-**DISEÑO EXPERIMENTAL**
+<h1>DISEÑO EXPERIMENTAL</h1>
 
 El experimento consiste en simular dos agentes reflexivos, uno determinista, es decir que toma sus decisiones de movimiento en un orden predeterminado y otro que selecciona movimientos aleatorios, ambos se mueven sobre una grilla de dimensión conocida en la cual se desconoce la distribución de la suciedad y la localización inicial del agente.
 
@@ -20,15 +20,16 @@ El criterio para la toma de decisiones tiene en cuenta que el agente sólo puede
 
 Para la recolección de lo datos se trabajó con grillas de dimensiones 2x2, 4x4, 8x8, 16x16, 32x32, 64x64 y 128x128, combinadas con niveles de suciedad en el ambiente de 0.1, 0.2, 0.4 y 0.8, repitiendo así 10 veces cada combinación.
 
-**ANÁLISIS Y DISCUSIÓN DE RESULTADOS** 
+<h1>ANÁLISIS Y DISCUSIÓN DE RESULTADOS</h1>
 
 A continuación, se muestran dos gráficos de barras en los que se representa el rendimiento de cada uno de los agentes
 
- ![][image1]  
-![][image2]  
+ ![](https://github.com/Perlaval/ia-uncuyo-2024/blob/main/tp2-agentes-racionales/images/Medici%C3%B3n%20de%20Rendimiento%20del%20Agente%20Reflexivo%20Simple%20Aleatorio.png)  
+![](https://github.com/Perlaval/ia-uncuyo-2024/blob/main/tp2-agentes-racionales/images/Medici%C3%B3n%20de%20Rendimiento%20del%20Agente%20Reflexivo%20Simple%20Aleatorio.png)  
+
 El agente reflexivo aleatorio se comporta mejor en entornos grandes con alto nivel de suciedad ya que puede recorrer distintas zonas de la grilla sin tener que ir paso a paso y hay una alta posibilidad de caer justo en celdas que requieren ser limpiadas porque el nivel de suciedad es alto, mientras que entornos más pequeño puede llegar caer en movimientos repetitivos o ciclos en cambio el determinista muestra un mejor rendimiento en todas las combinaciones suciedad-tamaño de la grilla en las que fue probado y esto puede ser porque como trabaja con un patrón de movimiento puede llegar a limpiar todas las celdas de manera eficiente o por lo menos cubrir gran parte del espacio del entorno cosa que no siempre puede lograr el otro agente indistintamente del tamaño del entorno.
 
-**CONCLUSIONES**
+<h1>CONCLUSIONES</h1>
 
 A partir de los datos obtenidos en el experimento se concluye que el agente reflexivo simple no aleatorio tiende a ser más efectivo que agente reflexivo simple aleatorio en términos de eficiencia y limpieza del entorno de la aspiradora por ello es importante diseñar agentes con estrategias definidas correctamente teniendo en cuenta los factores antes mencionados como propiedades del entorno, objetivos, medidas de rendimiento entre otros. Esto para poder trabajar adecuadamente en base a la efectividad en tareas logrando un buen rendimiento y que el agente pueda responder bien a entornos más complejos y variados.
 

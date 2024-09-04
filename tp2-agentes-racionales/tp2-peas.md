@@ -1,6 +1,6 @@
-Trabajo Práctico 2: Agentes racionales
+<h1>Trabajo Práctico 2: Agentes racionales</h1>
 
-1\. Para cada una de las siguientes actividades, describa el PEAS para cada tarea y caracterizarlo en término de las propiedades vistas. 
+**Ejercicio 1**
 
 **a) Jugar al CS (o cualquier otro 3d Shooter).**
 
