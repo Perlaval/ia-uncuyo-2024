@@ -13,25 +13,25 @@ import Agent
 #from gym import spaces
 
 def frozenLake(env):
-    """
-    ENTORNO 1
+    
+    #ENTORNO 1 ------------------------------------------------------------------------
     env = gym.make('FrozenLake-v1', desc=None, map_name="4x4", render_mode='human')
 
 
-    ENTORNO 2
+    #ENTORNO 2 ------------------------------------------------------------------------
     desc=["SFFF", "FHFH", "FFFH", "HFFG"]
-    S = start
-    F = frozen
-    H = hole
-    G = goal
+    #S = start
+    #F = frozen
+    #H = hole
+    #G = goal
 
-    cuando desc está definido no necesitamos map_name
+    #cuando desc está definido no necesitamos map_name
     env = gym.make('FrozenLake-v1', desc=desc, render_mode='human')
 
-    ENTORNO 3
+    #ENTORNO 3 ------------------------------------------------------------------------
     from gymnasium.envs.toy_text.frozen_lake import generate_random_map
     env = gym.make('FrozenLake-v1', desc=generate_random_map(size=8), render_mode='human')
-    """
+    
 
     #Obtener información del entorno
     print("Número de estados:", env.observation_space.n)
@@ -58,28 +58,38 @@ def frozenLakeWithAgent(agent):
     print("Número de estados:", agent.env.observation_space.n)
     print("Número de acciones:", agent.env.action_space.n)
 
-    #Ejecutar un episodio básico
-    #la posicion inicial del agente es aleatoria y se define al generar el mapa 
-    
-    print("Búsqueda por anchura:\n")
-
     state = agent.env.reset()
     print('Posición inicial del agente: ', state)
+
+    found, cost1, cost2, path = agent.busquedaPorAnchura()
+    print("Búsqueda por anchura------------------------")
+    print(f"found: {found}, costo escenario 1: {cost1}, costo escenario 2: {cost2}, path: {path}\n")
+
+    agent.env.reset()
     
-    lista_sol = agent.busquedaPorAnchura()
+    found, cost1, cost2, path = agent.busquedaPorProfundidad()
+    print("Búsqueda por profundidad------------------------\n")
+    print(f"found: {found}, costo escenario 1: {cost1}, costo escenario 2: {cost2}, path: {path}\n")
 
-    if lista_sol != []:
-        for i in range(len(lista_sol)):
-            action = lista_sol[i]
-            next_state, reward, done, truncated, _ = agent.env.step(action)
-            print(f"Acción: {action}, Nuevo estado: {next_state}, Recompensa: {reward}")
-            print(f"¿Ganó? (encontró el objetivo): {done}")
-            print(f"¿Frenó? (alcanzó el máximo de pasos posible): {truncated}\n")
-            state = next_state
-    else: 
-        print("no hay camino") 
+    agent.env.reset()
 
+    found, cost1, cost2, path = agent.busquedaPorProfLimitada()
+    print("Búsqueda por profundidad limitada------------------------")
+    print(f"found: {found}, costo escenario 1: {cost1}, costo escenario 2: {cost2}, path: {path}\n")
 
+    agent.env.reset()
+
+    found, cost, path = agent.busquedaCostoUniforme(1)
+    print("Búsqueda por costo uniforme escenario 1------------------------")
+    print(f"found: {found}, costo escenario 1: {cost}, path: {path}\n")
+
+    agent.env.reset()
+
+    found, cost, path = agent.busquedaCostoUniforme(2)
+    print("Búsqueda por costo uniforme escenario 2------------------------")
+    print(f"found: {found}, costo escenario 2: {cost}, path: {path}\n")
+
+    
 def generate_random_map_custom(size, probabilidad):
     #la variable 'probabilidad' es la probabilidad que una casilla sea de hielo por lo que si num_aleatorio < probabilidad entonces hay agujero
 
@@ -106,18 +116,15 @@ def generate_random_map_custom(size, probabilidad):
     map[i][j] = "G"
 
     #4. colocamos los agujeros de forma aleatoria teniendo en cuenta la probabilidad
-    cont = 0
+    
     for i in range(size):
         for j in range(size):
             if map[i][j] != "S" and map[i][j] != "G":
                 if random.random() < probabilidad:
                     map[i][j] = "H"
-            if map[i][j] == "S":
-                initial_state = cont
-
-            cont +=1
+            
     
-    return map, initial_state
+    return map
 
 
 #gym.register(id = 'FrozenLakeEnv', entry_point='frozen_lake:FrozenLakeEnv')
