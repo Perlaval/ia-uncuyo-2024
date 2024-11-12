@@ -26,11 +26,15 @@ El juego de Tetris sobre el cual se realizarán las pruebas lo desarrollaremos u
 
 ### Objetivo
 
-El objetivo principal del proyecto será implementar un agente que, dada la secuencia de piezas que caen, utilice los algoritmos de búsqueda local: Simulated Annealing y Algoritmo Genético, para determinar la mejor posición para colocar cada pieza y maximizar la puntuación de acuerdo con las reglas del juego.
+1. Implementar un agente utilice el algoritmo de Hill Climbing, para determinar la mejor posición para colocar cada pieza, cuyos resultados servirán como base para evaluar el rendimiento de los otros algoritmos.
+2. Implementar un agente que utilice el algoritmo de Simulated Annealing para determinar la mejor posición para colocar cada pieza y maximizar la puntuación de acuerdo a las reglas del juego.
+3. Implementar un agente que utilice el algoritmo Genético para determinar la mejor posición para colocar cada pieza y maximizar la puntuación de acuerdo a las reglas del juego.
+4. Comparar los resultados obtenidos de cada algoritmo (Simulated Annealing y Genético) con el algoritmo base (Hill Climbing).
+
 
 ### Alcance
 
- El alcance del proyecto estará limitado a la implementación de un algoritmo que evalúe diversas posiciones posibles y seleccione la mejor opción para cada pieza, con el fin de optimizar la jugabilidad.
+ El alcance del proyecto estará limitado a la implementación de los algoritmos de búsqueda local: Simulated Annealing, Genético y Hill Climbing (como algoritmo base) que evalúe diversas posiciones posibles y seleccione la mejor opción para cada pieza, con el fin de optimizar la jugabilidad.
 
 ### Limitaciones
 
@@ -38,13 +42,9 @@ Al jugar al tetris los algoritmos tendrán un tiempo determinado para poder toma
 
 ### Forma de evaluación de los resultados
 
-Para medir el rendimiento usaremos como base los resultados obtenidos de un agente que implementa el algoritmo de búsqueda local, Hill Climbing, y evaluaremos las siguientes métricas:
-
-- Puntaje obtenido   
-- Número de filas eliminadas  
-- Número de movimientos antes de perder
-
-A partir de los resultados obtenidos del algoritmo base podremos evaluar que tan bien se están cumpliendo los objetivos y si se ha logrado superar valores base obtenidos del algoritmo de Hill Climbing.
+- Puntaje obtenido: mide el puntaje obtenido por cada agente de acuerdo a la definición del juego, descrita en la descripción.
+- Número de filas eliminadas: mide la cantidad de líneas que completa el agente con cada algoritmo, lo cual nos permite conocer el rendimiento del agente.
+- Número de movimientos antes de perder: mide la cantidad de piezas que puede poner el agente antes de perder, lo que nos permite medir que tan bien, el agente, está optimizando el espacio de juego
 
 ## Justificación
 Implementar un agente que juegue al Tetris utilizando algoritmos de búsqueda local es interesante por varias razones. La primera es que Tetris es un juego que no requiere habilidades cognitivas complejas, pero sí de una estrategia para organizar y adaptar las piezas a las configuraciones posibles del tablero. Con el uso de Hill Climbing como algoritmo base, el agente puede explorar las posiciones óptimas para cada pieza y maximizar su rendimiento en términos de puntuación, por ello, consideramos que es una buena medida inicial para poder evaluar el rendimiento de los algoritmos: Simulated annealing y Genético, que ofrecen al agente la capacidad de explorar una gama más amplia de soluciones, esperando que estos últimos puedan superar o alcanzar los resultados de las métricas obtenidas por el algoritmo base.
